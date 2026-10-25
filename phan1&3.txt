@@ -1,0 +1,11 @@
+Phần 1. Phân tích dữ liệu Excel
+- Record (bản ghi): Một dòng dữ liệu tương ứng với một giao dịch, ví dụ TX001.
+- Field (trường dữ liệu): Các cột thông tin của giao dịch, gồm mã giao dịch, mã người dùng, số tiền, ngày giao dịch, trạng thái và phí đối tác.
+Phần 3. Kiểm thử lỗi #N/A
+Quy trình kiểm tra gồm 4 bước:
+1. Kiểm tra mã tra cứu: Xác nhận mã cần tìm tồn tại trong bảng danh mục.
+2. Kiểm tra khoảng trắng: Dùng TRIM() để loại bỏ khoảng trắng thừa.
+3. Kiểm tra vùng tra cứu: Đảm bảo cột chứa mã cần tìm nằm ở cột đầu tiên của vùng dữ liệu.
+4. Kiểm tra công thức: Đảm bảo chỉ số cột trả về hợp lệ và tham số cuối là FALSE.
+Ví dụ công thức:
+=IFERROR(VLOOKUP(TRIM(B2),Danh_muc!$A$2:$B$6,2,FALSE),"Không tìm thấy")
